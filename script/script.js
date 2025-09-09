@@ -97,7 +97,9 @@ const showPlantDetails = async (id) => {
    modalContent.innerHTML = "";
    const createDiv = document.createElement('div')
    createDiv.innerHTML= `
-    <div class="modal-box bg-[url(${plantDetails.image})] bg-cover bg-center">
+    <div class="modal-box relative bg-[url(${plantDetails.image})] bg-cover bg-center">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent rounded-lg"></div>
+    <div class="relative z-10"> 
     <h3 class="text-lg font-bold text-white">${plantDetails.name}</h3>
     <p class="py-4 text-white">${plantDetails.description}</p>
     <p class="py-4 text-white">Category: ${plantDetails.category}</p>
@@ -108,7 +110,10 @@ const showPlantDetails = async (id) => {
         <button class="btn">Close</button>
       </form>
     </div>
-  </div>`
+  </div>
+     </div>
+
+    `
   modalContent.append(createDiv);
 
 }
