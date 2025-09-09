@@ -68,7 +68,7 @@ displayAllPlants = (datas) => {
                 src="${data.image}" alt="images" />
             </figure>
             <div class="card-body">
-              <h2 class="card-title">${data.name}</h2>
+              <h2 onclick="showPlantDetails(${data.id})" class="btn btn-ghost card-title">${data.name}</h2>
               <p class="text-left max-w-md font-semibold text-[#505b6f]">${data.description}</p>
               <div class="card-actions justify-end">
                 <!-- fruit tree and 500 taka  -->
@@ -85,6 +85,33 @@ displayAllPlants = (datas) => {
     }
 }
 
+const showPlantDetails = async (id) => {
+    const url = `https://openapi.programming-hero.com/api/plant/${id}`;
+    const response = await fetch(url);
+    const details = await response.json();
+
+    const plantDetails = details.plants;
+
+    document.getElementById("my_modal_1").showModal();
+   const modalContent = document.getElementById("modalContent"); 
+   modalContent.innerHTML = "";
+   const createDiv = document.createElement('div')
+   createDiv.innerHTML= `
+    <div class="modal-box bg-[url(${plantDetails.image})] bg-cover bg-center">
+    <h3 class="text-lg font-bold text-white">${plantDetails.name}</h3>
+    <p class="py-4 text-white">${plantDetails.description}</p>
+    <p class="py-4 text-white">Category: ${plantDetails.category}</p>
+    <p class="py-4 text-white">Price: ${plantDetails.price} Taka</p>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>`
+  modalContent.append(createDiv);
+
+}
 
 const loadPlantDetails = async (id) => {
     const cartSection = document.getElementById('cartSection')
@@ -93,7 +120,6 @@ const loadPlantDetails = async (id) => {
     const details = await response.json();
 
     const plantDetails = details.plants;
-    console.log(plantDetails.name);
     const createDiv = document.createElement('div');
     createDiv.innerHTML = `
          <div class="flex flex-row justify-around items-center bg-[#F0FDF4]">

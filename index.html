@@ -76,13 +76,14 @@
         <!-- Categories Section -->
         <section class="" id="categories">
           <h2 class=" font-semibold text-xl mb-5">Categories</h2>
-          <a onclick="loadAllPlants()" class="btn flex rounded-sm w-60 h-9 p-3 bg-[#15803D] text-white justify-start font-normal">All Trees</a>
-          
-         
+          <a onclick="loadAllPlants()"
+            class="btn flex rounded-sm w-60 h-9 p-3 bg-[#15803D] text-white justify-start font-normal">All Trees</a>
+
+
         </section>
         <!-- Product Show Section -->
         <section class="grid md:grid-cols-3 grid gap-7 p-7 col-span-2" id="allPlants">
-          
+
         </section>
 
         <!-- Your Cart section -->
@@ -90,7 +91,7 @@
           <h2 class="font-semibold text-xl mb-5">Your Cart</h2>
           <!-- carts  -->
           <div class="flex flex-col gap-6" id="cartSection">
-           
+
           </div>
           <hr class="border-t border-gray-300 my-4">
         </section>
@@ -159,12 +160,12 @@
         <!-- fieldset -->
         <div>
           <fieldset class="bg-[#15803D] fieldset bg-base-200 border-base-300 rounded-box w-xs p-4">
-  
+
             <input type="text" class="input" placeholder="Your Name" />
-  
-  
+
+
             <input type="email" class="input" placeholder="Your Email Address" />
-  
+
             <!-- select -->
             <select class="select select-primary">
               <option disabled selected>Number of Trees</option>
@@ -172,19 +173,32 @@
               <option>20</option>
               <option>50+</option>
             </select>
-  
-  
+
+
             <button class="btn btn-neutral mt-4 bg-[#facc15] text-[#15803d]">Donate Now</button>
           </fieldset>
         </div>
       </div>
+
+      <!-- Modal -->
+
+      <!-- Open the modal using ID.showModal() method -->
+<button class="btn hidden" onclick="my_modal_1.showModal()">open modal</button>
+<dialog id="my_modal_1" class="modal">
+ <div id="modalContent" class="modal-box bg-[url('https://i.ibb.co.com/cSQdg7tf/mango-min.jpg')] bg-cover bg-center">
+ 
+  </div>
+</dialog>
+
     </section>
+
+ 
 
 
     <!-- All Rigth Reserved Section -->
-     <section class="bg-[#14532d] flex items-center justify-center  h-16">
-       <p class="font-normal text-[#9dacc8]">© 2025 Green Earth. All Rights Reserved.</p>
-     </section>
+    <section class="bg-[#14532d] flex items-center justify-center  h-16">
+      <p class="font-normal text-[#9dacc8]">© 2025 Green Earth. All Rights Reserved.</p>
+    </section>
   </footer>
   <script src="script/script.js"></script>
 </body>
